@@ -30,7 +30,7 @@ and visit [localhost:4000](http://localhost:4000)
 
 ## Build
 
-When you are to publish/use in applications, simply run the build scripts
+When you are ready to publish/use in applications, simply run the build scripts
 ```bash
 npm run build
 ```
