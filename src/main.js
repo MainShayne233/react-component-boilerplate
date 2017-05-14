@@ -15,10 +15,9 @@ const store = createStore(initialState)
 const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
-  const routes = require('./routes/index').default(store)
 
   ReactDOM.render(
-    <ComponentContainer store={store} routes={routes} />,
+    <ComponentContainer store={store}  />,
     MOUNT_NODE
   )
 }
@@ -45,12 +44,12 @@ if (__DEV__) {
     }
 
     // Setup hot module replacement
-    module.hot.accept('./routes/index', () =>
-      setImmediate(() => {
-        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
-        render()
-      })
-    )
+//    module.hot.accept('./routes/index', () =>
+//      setImmediate(() => {
+//        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
+//        render()
+//      })
+//    )
   }
 }
 
