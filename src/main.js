@@ -1,31 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createStore from './store/createStore'
-import ComponentContainer from './ComponentContainer'
+import ComponentContainer from './index'
 
-// ========================================================
-// Store Instantiation
-// ========================================================
 const initialState = window.__INITIAL_STATE__
-const store = createStore(initialState)
 
-// ========================================================
-// Render Setup
-// ========================================================
 const MOUNT_NODE = document.getElementById('root')
 
 let render = () => {
 
   ReactDOM.render(
-    <ComponentContainer store={store}  />,
+    <ComponentContainer />,
     MOUNT_NODE
   )
 }
 
-// This code is excluded from production bundle
 if (__DEV__) {
   if (module.hot) {
-    // Development render functions
     const renderComponent = render
     const renderError = (error) => {
       const RedBox = require('redbox-react').default
@@ -33,7 +23,6 @@ if (__DEV__) {
       ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
     }
 
-    // Wrap render in try/catch
     render = () => {
       try {
         renderComponent()
@@ -43,17 +32,13 @@ if (__DEV__) {
       }
     }
 
-    // Setup hot module replacement
-//    module.hot.accept('./routes/index', () =>
-//      setImmediate(() => {
-//        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
-//        render()
-//      })
-//    )
+    module.hot.accept('./index', () =>
+      setImmediate(() => {
+        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
+        render()
+      })
+    )
   }
 }
 
-// ========================================================
-// Go!
-// ========================================================
 render()

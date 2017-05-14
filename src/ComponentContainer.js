@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
-import Counter from './index'
+import { injectReducer } from './store/reducers'
+import createStore from './store/createStore'
+import CounterContainer from './containers/CounterContainer'
+import reducer from './modules/counter'
 
 class ComponentContainer extends Component {
-  static propTypes = {
-    store  : PropTypes.object.isRequired
-  }
 
   shouldComponentUpdate () {
     return false
   }
 
   render () {
-    const { store } = this.props
-    const CounterComponent = Counter(store)
+    const { initialState } = this.props
+    const store = createStore(initialState)
+    injectReducer(store, { key: 'counter', reducer })
 
     return (
       <Provider store={store}>
-        <CounterComponent/>
+        <CounterContainer/>
       </Provider>
     )
   }
