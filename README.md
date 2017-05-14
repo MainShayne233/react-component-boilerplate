@@ -16,7 +16,8 @@ cd my-react-component
 Run setup scripts
 
 ```bash
-coming soon...
+npm i
+rest coming soon...
 ```
 
 Run development server
@@ -44,4 +45,21 @@ Then you can just require/import like any React component:
 import { MyComponent } from 'my-component'
 // or
 const MyComponent = require('my-component').MyComponent
+```
+
+## Directory breakdown
+```bash
+├── index.js # Compiled file, used as entry when imported/required
+├── lib # Development build directory
+├── package.json # Dependencies/package information
+├── README.md # The file you are currently reading
+├── src # Where all your code goes
+│   ├── components # Where you put your components
+│   │   ├── counter_container.jsx # Sample React component container
+│   │   └── counter.jsx # Sample React component
+│   ├── demo_container.js # Container used for the development/demo app
+│   ├── index.html # HTML file used for development/demo app
+│   ├── index.js # Where you list your exports (what you want to be import into other apps)
+│   └── main.js # Entry file for development/demo app
+└── webpack.config.js # Configuration for webpack build and dev server
 ```
