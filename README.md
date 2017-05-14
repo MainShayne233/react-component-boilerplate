@@ -61,6 +61,6 @@ const MyComponent = require('my-component').MyComponent
 │   ├── index.html # HTML file used for development/demo app
 │   ├── index.js # Where you list your exports (what you want to be import into other apps)
 │   └── main.js # Entry file for development/demo app
-└── webpack.config.js # Configuration for webpack build and dev server
-├── favicon.ico # Just a generic favicon (You can replace it, just use the same file name)
+├── webpack.config.js # Configuration for webpack build and dev server
+└── favicon.ico # Just a generic favicon (You can replace it, just use the same file name)
 ```
