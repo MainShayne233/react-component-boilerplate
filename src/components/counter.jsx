@@ -15,7 +15,7 @@ class Counter extends Component {
           className='btn btn-default' 
           onClick={increment}
         >
-          Increment!
+          Increment
         </button>
         {' '}
         <button 

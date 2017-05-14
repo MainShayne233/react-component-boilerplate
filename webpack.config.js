@@ -16,7 +16,6 @@ const devEntries = [
 
 const prodEntry = './src/index.js'
 
-
 var plugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
