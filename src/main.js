@@ -1,44 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ComponentContainer from './index'
+import { AppContainer } from 'react-hot-loader'
+import DemoContainer from './demo_container'
 
-const initialState = window.__INITIAL_STATE__
+const root = document.getElementById('root')
 
-const MOUNT_NODE = document.getElementById('root')
-
-let render = () => {
-
+const render = (Component) => {
   ReactDOM.render(
-    <ComponentContainer />,
-    MOUNT_NODE
+    <AppContainer>
+      <Component/>
+    </AppContainer>,
+    root
   )
 }
 
-if (__DEV__) {
-  if (module.hot) {
-    const renderComponent = render
-    const renderError = (error) => {
-      const RedBox = require('redbox-react').default
+render(DemoContainer)
 
-      ReactDOM.render(<RedBox error={error} />, MOUNT_NODE)
-    }
-
-    render = () => {
-      try {
-        renderComponent()
-      } catch (error) {
-        console.error(error)
-        renderError(error)
-      }
-    }
-
-    module.hot.accept('./index', () =>
-      setImmediate(() => {
-        ReactDOM.unmountComponentAtNode(MOUNT_NODE)
-        render()
-      })
-    )
-  }
-}
-
-render()
+if (module.hot) module.hot.accept('./demo_container', () => render(DemoContainer))

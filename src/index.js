@@ -1,1 +1,1 @@
-export { default as default } from './ComponentContainer'
+export {default as Counter} from './components/counter_container'
