@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
-import Counter from '../routes/Counter'
+import Counter from './routes/Counter'
 
-class AppContainer extends Component {
+class ComponentContainer extends Component {
   static propTypes = {
     store  : PropTypes.object.isRequired
   }
@@ -27,4 +27,4 @@ class AppContainer extends Component {
   }
 }
 
-export default AppContainer
+export default ComponentContainer

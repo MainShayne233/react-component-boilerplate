@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
-import AppContainer from './containers/AppContainer'
+import ComponentContainer from './ComponentContainer'
 
 // ========================================================
 // Store Instantiation
@@ -18,7 +18,7 @@ let render = () => {
   const routes = require('./routes/index').default(store)
 
   ReactDOM.render(
-    <AppContainer store={store} routes={routes} />,
+    <ComponentContainer store={store} routes={routes} />,
     MOUNT_NODE
   )
 }
@@ -27,7 +27,7 @@ let render = () => {
 if (__DEV__) {
   if (module.hot) {
     // Development render functions
-    const renderApp = render
+    const renderComponent = render
     const renderError = (error) => {
       const RedBox = require('redbox-react').default
 
@@ -37,7 +37,7 @@ if (__DEV__) {
     // Wrap render in try/catch
     render = () => {
       try {
-        renderApp()
+        renderComponent()
       } catch (error) {
         console.error(error)
         renderError(error)
