@@ -35,7 +35,7 @@ When you are ready to publish/use in applications, simply run the build scripts
 npm run build
 ```
 
-This will produce an `index.js` file, which will compile and expose the exports
+This will produce an `index.js` file, which will expose the exports
 listed in `src/index.js`
 
 Then you can just require/import like any React component:
