@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Counter from './counter'
 
-export default class CounterContainer extends Component {
+class CounterContainer extends Component {
 
   // LIFECYCLE
 
@@ -50,3 +50,5 @@ export default class CounterContainer extends Component {
     return React.createElement(Counter, this.counterProps())
   }
 }
+
+export default CounterContainer
