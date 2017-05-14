@@ -2,6 +2,8 @@
 
 Basic React component setup with a minimal server for both development and demo.
 
+
+
 ## Usage
 
 Clone the repo into your own directory
@@ -20,8 +22,10 @@ coming soon...
 Run development server
 ```bash
 npm run start
-
+# This runs the application that starts in ./src/main.js, which is just the
+# development/demo app for your component, but is not included in the build.
 ```
+
 and visit [localhost:4000](http://localhost:4000)
 
 ## Build
