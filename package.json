@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "starting place for creating a react component",
   "entry": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --watch-stdin --colors",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js"
+  },
   "engines": {
     "node": ">=4.5.0",
     "npm": "^3.0.0"
