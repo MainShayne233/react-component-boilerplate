@@ -1,42 +1,48 @@
+const port = 4000
 const path = require('path')
 const webpack = require('webpack')
-const publicPath = 'http://localhost:4000/'
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const publicPath = `http://localhost:${port}/`
 const WriteFilePlugin = require('write-file-webpack-plugin')
 
-const env = process.env.MIX_ENV || 'dev'
-const prod = env === 'prod'
+const env = process.env.NODE_ENV || 'development'
+const prod = env === 'production'
 
-const appEntry = path.join(__dirname, 'src', 'main.js')
-
-const DEV_ENTRIES = [
+const devEntries = [
   'react-hot-loader/patch',
-  'webpack-dev-server/client?http://localhost:4000',
+  `webpack-dev-server/client?http://localhost:${port}`,
   'webpack/hot/only-dev-server',
+   path.join(__dirname, 'src', 'main.js'),
 ]
+
+const prodEntry = './src/index.js'
+
 
 var plugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
-  new webpack.DefinePlugin({
-    __PROD: prod,
-    __DEV: env === 'dev',
-  }),
-  new WriteFilePlugin(),
+  new WriteFilePlugin({test: /^(?!.*(hot)).*/}),
 ]
 
-if (!prod) plugins.push(new webpack.HotModuleReplacementPlugin())
+if (!prod) plugins.push( new webpack.HotModuleReplacementPlugin() )
+
+const devOutput = {
+  path: path.join(__dirname, 'lib'),
+  filename: '[name].bundle.js',
+  publicPath: publicPath,
+}
+
+const prodOutput = {
+  library: 'index',
+  libraryTarget: 'commonjs2',
+  filename: 'index.js',
+}
 
 module.exports = {
   devtool: prod ? false : 'cheap-module-eval-source-map',
   entry: {
-    app: prod ? appEntry : DEV_ENTRIES.concat([appEntry]),
+    app: prod ? prodEntry : devEntries,
   },
-  output: {
-    path:  path.join(__dirname, 'lib'),
-    filename: '[name].bundle.js',
-    publicPath: publicPath,
-  },
+  output: prod ? prodOutput : devOutput,
   resolve: {
     modules: [
       __dirname,
@@ -70,8 +76,7 @@ module.exports = {
   devServer: {
     hot: true,
     overlay: true,
-    port: 4000,
-    //historyApiFallback: true,
+    port: port,
     historyApiFallback: { index: 'src/index.html' },
     headers: {
       'Access-Control-Allow-Origin': '*',
