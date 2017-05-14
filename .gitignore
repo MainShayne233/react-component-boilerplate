@@ -17,3 +17,6 @@ tags
 
 # YARN
 yarn.lock
+
+# BUILD ASSETS
+./lib/app.bundle.js
