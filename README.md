@@ -52,6 +52,8 @@ const MyComponent = require('my-component').MyComponent
 ├── lib # Development build directory
 ├── package.json # Dependencies/package information
 ├── README.md # The file you are currently reading
+├── scripts
+|   └── setup.js # setup script, gets removed
 ├── src # Where all your code goes
 │   ├── components # Where you put your components
 │   │   ├── counter_container.jsx # Sample React component container

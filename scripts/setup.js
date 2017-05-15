@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const exec = require('child_process').exec
 const boilerplateName = 'react-component-boilerplate'
 const packageDotJson = 'package.json'
 const readMe = 'README.md'
@@ -45,3 +46,7 @@ fs.readFile(indexDotHtml, encoding, function(err, file) {
   })
 })
 
+exec('rm -rf scripts/', function(error, stdout, stderr) {
+  if (error) throw(error)
+  console.log("Succesfully removed scripts/ directory")
+})
