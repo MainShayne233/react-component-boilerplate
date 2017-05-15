@@ -8,6 +8,6 @@ describe('Counter', () => {
   it ('Renders the counter component', () => {
     const container = mount( <CounterContainer /> )
     const count = container.find('h2')
-    expect( count.text() ).to.contain('Count: 0')
+    expect( count.text() ).to.equal('Count: 0')
   })
 })
