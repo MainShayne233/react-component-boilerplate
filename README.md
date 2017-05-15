@@ -17,6 +17,9 @@ Run setup the script
 
 ```bash
 npm run setup
+# Removes boilerplate names
+# Removes setup scripts
+# Initializes Git
 ```
 
 Run development server
