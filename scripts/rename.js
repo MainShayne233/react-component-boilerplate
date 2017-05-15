@@ -26,9 +26,9 @@ fs.readFile(packageDotJson, encoding, function(err, file) {
                                     .join('yourGitUsername')
                                     .split(description)
                                     .join('A cool React component')
-                                    .split("\n").
+                                    .split("\n")
                                     .filter(line => { return line.indexOf("\"setup\":") === -1 })
-                                    .join('')
+                                    .join("\n")
 
   fs.writeFile(packageDotJson, updatedPackageDotJson, encoding, function(err) {
     if (err) throw(err)
