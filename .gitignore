@@ -22,4 +22,4 @@ yarn.lock
 ./lib/app.bundle.js
 
 # TESTS
-./__tests__/__snapshots__
+__tests__/__snapshots__/
