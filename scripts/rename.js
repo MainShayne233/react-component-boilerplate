@@ -29,15 +29,15 @@ fs.readFile(packageDotJson, encoding, function(err, file) {
 
   fs.writeFile(packageDotJson, updatedPackageDotJson, encoding, function(err) {
     if (err) throw(err)
-    console.log('Succesfully updated package.json')
+    console.log('Successfully updated package.json')
   })
 })
 
 fs.readFile(indexDotHtml, encoding, function(err, file) {
   const updatedIndexDotHtml = file.split('React Component Boilerplate')
                                   .join(dirname)
-  fs.writeFile(indexDotHtml, encoding, function(err) {
+  fs.writeFile(indexDotHtml, updatedIndexDotHtml, encoding, function(err) {
     if (err) throw(err)
-    console.log('Sucesfully updated src/index.html')
+    console.log('Successfully updated src/index.html')
   })
 })
