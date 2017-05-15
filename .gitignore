@@ -19,7 +19,7 @@ tags
 yarn.lock
 
 # BUILD ASSETS
-./lib/app.bundle.js
+lib/app.bundle.js
 
 # TESTS
 __tests__/__snapshots__/
