@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Counter } from './index'
+import { Counter } from '../src/index'
 
 const defaultProps = {}
 
