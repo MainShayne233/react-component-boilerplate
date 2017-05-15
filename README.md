@@ -17,7 +17,7 @@ Run setup the script
 
 ```bash
 npm run setup
-# Install dependencies
+# Installs dependencies
 # Removes boilerplate names
 # Removes setup scripts
 # Initializes Git
