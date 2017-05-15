@@ -41,7 +41,7 @@ npm run test
 
 ## Build
 
-When you are ready to publish/use in applications, simply run the build scripts
+When you are ready to publish/use in applications, simply run the build script
 ```bash
 npm run build
 ```
