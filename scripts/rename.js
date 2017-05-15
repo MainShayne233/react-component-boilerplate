@@ -26,6 +26,9 @@ fs.readFile(packageDotJson, encoding, function(err, file) {
                                     .join('yourGitUsername')
                                     .split(description)
                                     .join('A cool React component')
+                                    .split("\n").
+                                    .filter(line => { return line.indexOf("\"setup\":") === -1 })
+                                    .join('')
 
   fs.writeFile(packageDotJson, updatedPackageDotJson, encoding, function(err) {
     if (err) throw(err)
@@ -41,3 +44,4 @@ fs.readFile(indexDotHtml, encoding, function(err, file) {
     console.log('Successfully updated src/index.html')
   })
 })
+

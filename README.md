@@ -13,11 +13,10 @@ git clone https://github.com/MainShayne233/react-component-boilerplate my-react-
 cd my-react-component
 ```
 
-Run setup scripts
+Run setup the script
 
 ```bash
-npm i
-rest coming soon...
+npm setup
 ```
 
 Run development server
