@@ -4,7 +4,7 @@
   "description": "starting place for creating a react component",
   "entry": "index.js",
   "scripts": {
-    "setup": "npm i && node scripts/rename.js",
+    "setup": "npm i && node scripts/setup.js",
     "start": "./node_modules/.bin/webpack-dev-server --watch-stdin --colors",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js"
   },
