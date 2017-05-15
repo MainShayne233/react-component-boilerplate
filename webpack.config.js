@@ -68,7 +68,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: ['babel-loader'],
-        include: path.join(__dirname, 'src'),
+        include: [path.join(__dirname, 'src'), path.join(__dirname, 'demo')],
         exclude: /node_modules/,
       },
     ],
@@ -77,7 +77,7 @@ module.exports = {
     hot: true,
     overlay: true,
     port: port,
-    historyApiFallback: { index: 'src/index.html' },
+    historyApiFallback: { index: 'demo/index.html' },
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
