@@ -16,7 +16,7 @@ cd my-react-component
 Run setup the script
 
 ```bash
-npm setup
+npm run setup
 ```
 
 Run development server
