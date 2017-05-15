@@ -18,35 +18,56 @@ const updatedReadMe = [
 fs.writeFile(readMe, updatedReadMe, encoding, (err) => {
   if (err) throw(err)
   console.log('Successfully updated README.md')
+  updatePackageDotJson()
 })
 
-fs.readFile(packageDotJson, encoding, function(err, file) {
-  const updatedPackageDotJson = file.split(boilerplateName)
+function updatePackageDotJson() {
+
+
+  fs.readFile(packageDotJson, encoding, function(err, file) {
+    const updatedPackageDotJson = file.split(boilerplateName)
+                                      .join(dirname)
+                                      .split(gitUserName)
+                                      .join('yourGitUsername')
+                                      .split(description)
+                                      .join('A cool React component')
+                                      .split("\n")
+                                      .filter(line => { return line.indexOf("\"setup\":") === -1 })
+                                      .join("\n")
+  
+    fs.writeFile(packageDotJson, updatedPackageDotJson, encoding, function(err) {
+      if (err) throw(err)
+      console.log('Successfully updated package.json')
+    })
+  })
+
+  updateIndexDotHtml()
+}
+
+function updateIndexDotHtml() {
+
+  fs.readFile(indexDotHtml, encoding, function(err, file) {
+    const updatedIndexDotHtml = file.split('React Component Boilerplate')
                                     .join(dirname)
-                                    .split(gitUserName)
-                                    .join('yourGitUsername')
-                                    .split(description)
-                                    .join('A cool React component')
-                                    .split("\n")
-                                    .filter(line => { return line.indexOf("\"setup\":") === -1 })
-                                    .join("\n")
-
-  fs.writeFile(packageDotJson, updatedPackageDotJson, encoding, function(err) {
-    if (err) throw(err)
-    console.log('Successfully updated package.json')
+    fs.writeFile(indexDotHtml, updatedIndexDotHtml, encoding, function(err) {
+      if (err) throw(err)
+      console.log('Successfully updated src/index.html')
+    })
   })
-})
+  removeScripts()
+}
 
-fs.readFile(indexDotHtml, encoding, function(err, file) {
-  const updatedIndexDotHtml = file.split('React Component Boilerplate')
-                                  .join(dirname)
-  fs.writeFile(indexDotHtml, updatedIndexDotHtml, encoding, function(err) {
-    if (err) throw(err)
-    console.log('Successfully updated src/index.html')
+function removeScripts() {
+  exec('rm -rf scripts/', function(error, stdout, stderr) {
+    if (error) throw(error)
+    console.log("Succesfully removed scripts/ directory")
   })
-})
+  initGit()
+}
 
-exec('rm -rf scripts/', function(error, stdout, stderr) {
-  if (error) throw(error)
-  console.log("Succesfully removed scripts/ directory")
-})
+function initGit() {
+  exec('rm -rf .git && git add -A && git commit -m "init"', function(error, stdout, stderr) {
+    if (error) throw(error)
+    console.log("Succesfully initialized git")
+  })
+}
