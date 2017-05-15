@@ -5,7 +5,8 @@
   "entry": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --watch-stdin --colors",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js"
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js",
+    "setup": "npm i && node scripts/rename.js"
   },
   "engines": {
     "node": ">=4.5.0",
