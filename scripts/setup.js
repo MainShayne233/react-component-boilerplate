@@ -66,7 +66,7 @@ function removeScripts() {
 }
 
 function initGit() {
-  exec('rm -rf .git && git add -A && git commit -m "init"', function(error, stdout, stderr) {
+  exec('rm -rf .git && git init && git add -A && git commit -m "init"', function(error, stdout, stderr) {
     if (error) throw(error)
     console.log("Succesfully initialized git")
   })
