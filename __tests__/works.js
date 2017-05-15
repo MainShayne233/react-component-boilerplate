@@ -1,11 +1,13 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
-import { Counter } from '../src/index.js'
+import { expect } from 'chai'
+import { mount } from 'enzyme'
+import CounterContainer from '../src/components/counter_container'
+import Counter from '../src/components/counter'
 
 describe('Counter', () => {
   it ('Renders the counter component', () => {
-    const component = renderer.create(<Counter/>)
-    const json = component.toJSON()
-    expect(json).toMatchSnapshot()
+    const container = mount( <CounterContainer /> )
+    const count = container.find('h2')
+    expect( count.text() ).to.contain('Count: 0')
   })
 })
