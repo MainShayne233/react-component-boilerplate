@@ -52,20 +52,21 @@ const MyComponent = require('my-component').MyComponent
 
 ## Directory breakdown
 ```bash
-├── index.js # Compiled file, used as entry when imported/required
-├── lib # Development build directory
-├── package.json # Dependencies/package information
 ├── README.md # The file you are currently reading
-├── scripts
-|   └── setup.js # setup script, gets removed
-├── src # Where all your code goes
+├── demo # Contains files for demo/dev application
+│   ├── demo_container.js # Container that renders your component in the demo/dev app
+│   ├── index.html # HTML file for demo/dev app
+│   └── main.js # Entry point for demo/dev app
+├── favicon.ico # Favicon for demo/dev app
+├── index.js # Compiled component that exposes exports contained in ./src/index.js
+├── lib # Build directory, just a dumping ground for webpack
+├── package.json # Dependencies and package information
+├── scripts # Scripts directory, is removed on setup
+│   └── setup.js # Setup script, removes itself
+├── src # Where your code goes
 │   ├── components # Where you put your components
-│   │   ├── counter_container.jsx # Sample React component container
-│   │   └── counter.jsx # Sample React component
-│   ├── demo_container.js # Container used for the development/demo app
-│   ├── index.html # HTML file used for development/demo app
-│   ├── index.js # Where you list your exports (what you want to be import into other apps)
-│   └── main.js # Entry file for development/demo app
-├── webpack.config.js # Configuration for webpack build and dev server
-└── favicon.ico # Just a generic favicon (You can replace it, just use the same file name)
+│   │   ├── counter.jsx # Sample component, a simple counter
+│   │   └── counter_container.jsx # Sample component container for the counter
+│   └── index.js # Exposes exports
+└── webpack.config.js # Webpack/Server config
 ```
