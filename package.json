@@ -6,7 +6,8 @@
   "scripts": {
     "setup": "npm i && node scripts/setup.js",
     "start": "./node_modules/.bin/webpack-dev-server --watch-stdin --colors",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js"
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p --config webpack.config.js",
+    "test": "./node_modules/.bin/jest"
   },
   "engines": {
     "node": ">=4.5.0",
