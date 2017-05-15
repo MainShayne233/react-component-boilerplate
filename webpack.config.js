@@ -47,6 +47,7 @@ module.exports = {
       __dirname,
       'node_modules',
       'src',
+      'demo',
     ],
     extensions: ['*', '.js', '.jsx'],
   },
